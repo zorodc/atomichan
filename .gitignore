@@ -1,0 +1,10 @@
+*~
+*.orig
+*.swp
+*.out
+*.rej
+*.ali
+*.o
+
+/bin
+
