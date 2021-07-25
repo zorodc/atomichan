@@ -32,9 +32,10 @@ int main()
 	thrd_t processing_thread;
 	thrd_create(&processing_thread, processing_fn, chan);
 
-	for (double i = 1; i < 127; ++i) {
+	for (double i = 1; i < 65000; ++i) {
 		uintptr_t u; memcpy(&u, &i, sizeof(i));
 		chan_send(chan, u);
+		if ((unsigned long)i % 50 == 0) printf("Sent: %ld.\n", (long)i);
 	}
 	chan_send(chan, 0);
 
